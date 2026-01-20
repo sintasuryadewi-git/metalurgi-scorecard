@@ -1,186 +1,337 @@
-import { ArrowRight, BarChart3, Database, Lock, CheckCircle2, XCircle, Calculator } from 'lucide-react';
-import Link from 'next/link';
+import { 
+  ArrowRight, 
+  BarChart3, 
+  Database, 
+  CheckCircle2, 
+  XCircle, 
+  Calculator, 
+  Users, 
+  Zap, 
+  Layout, 
+  MessageSquare,
+  ShieldCheck,
+  TrendingUp,
+  BrainCircuit,
+  CalendarCheck
+} from 'lucide-react';
 
 export default function Home() {
-  // GANTI LINK INI DENGAN LINK FORM TALLY/GOOGLE FORM ANDA
-  const LINK_LEAD_MAGNET = "/result"; // Contoh, ganti punya Anda
-  const LINK_WA_CONSULT = "https://wa.me/6281234567890"; // Ganti No WA
+  // --- KONFIGURASI LINK ---
+  const LINK_LEAD_MAGNET = "/result"; // Masuk ke Funnel Scorecard
+  const LINK_DEMO_APP = "https://metalurgi-erp.vercel.app"; // Link Demo App
+  const LINK_BOOKING_WA = "https://wa.me/6281234567890?text=Halo%20Tim%20Metalurgi,%20saya%20tertarik%20diskusi%20soal%20Lifetime%20License."; 
 
   return (
-    <main className="min-h-screen bg-white font-sans text-slate-900">
+    <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 scroll-smooth">
       
       {/* --- NAVBAR --- */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-black text-xl tracking-tighter text-blue-900">
-            <Database className="w-6 h-6 text-blue-600" />
+      <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="flex items-center gap-2 font-black text-xl tracking-tighter text-slate-900">
+            <div className="w-8 h-8 bg-blue-700 rounded-lg flex items-center justify-center text-white">
+              <Database className="w-4 h-4" />
+            </div>
             METALURGI
           </div>
-          <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <a href="#problem" className="hover:text-blue-600 transition">Masalah</a>
-            <a href="#solution" className="hover:text-blue-600 transition">Solusi Hybrid</a>
-            <a href="#pricing" className="hover:text-blue-600 transition">Harga</a>
+          
+          <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
+            <a href="#savings" className="hover:text-blue-700 transition">Hitung Hematnya</a>
+            <a href="#features" className="hover:text-blue-700 transition">Fitur Enterprise</a>
+            <a href="#addons" className="hover:text-blue-700 transition">Layanan Support</a>
           </div>
-          <a href={LINK_LEAD_MAGNET} target="_blank" className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-bold transition">
-            Audit Bisnis Gratis
-          </a>
+
+          <div className="flex gap-3">
+             <a href={LINK_BOOKING_WA} target="_blank" className="hidden md:flex items-center gap-2 border border-slate-200 hover:border-blue-600 px-4 py-2 rounded-lg text-sm font-bold transition text-slate-700">
+               <MessageSquare className="w-4 h-4" />
+               Chat Tim
+             </a>
+             <a href={LINK_LEAD_MAGNET} className="bg-blue-700 hover:bg-blue-800 text-white px-5 py-2 rounded-lg text-sm font-bold transition shadow-lg shadow-blue-200 animate-pulse-slow">
+               Audit Bisnis Gratis
+             </a>
+          </div>
         </div>
       </nav>
 
-      {/* --- HERO SECTION --- */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold border border-blue-100 mb-4">
-            🚀 New Approach: The Hybrid ERP System
+      {/* --- HERO SECTION (LIFETIME LICENSE FOCUS) --- */}
+      <section className="pt-32 pb-24 px-6 bg-slate-50 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]"></div>
+
+        <div className="max-w-5xl mx-auto text-center space-y-8 relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-100 text-green-800 text-xs font-bold border border-green-200 mb-2">
+            💰 STOP BAYAR SEWA SOFTWARE
           </div>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-tight">
-            Ubah <span className="text-green-600">Google Sheets</span> Menjadi <br/>
-            <span className="text-blue-600">ERP Dashboard</span> Canggih
+          
+          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+            Fitur Sekelas Enterprise. <br/>
+            <span className="text-blue-700">Tanpa Biaya Langganan.</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-500 max-w-2xl mx-auto leading-relaxed">
-            Tanpa biaya langganan bulanan. Tanpa migrasi data yang ribet. 
-            Admin tetap kerja cepat di Excel, Owner pantau profit real-time di Dashboard.
+          
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Miliki <strong>Business Operating System (BOS)</strong> Anda sendiri selamanya. 
+            Hemat puluhan juta rupiah per tahun dengan menghapus biaya sewa software (SaaS). 
+            Satu harga, Unlimited User, Database Milik Anda.
           </p>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 pt-4">
-            <a href={LINK_LEAD_MAGNET} target="_blank" className="w-full md:w-auto flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-lg shadow-blue-200 transition transform hover:-translate-y-1">
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
+            <a 
+              href={LINK_DEMO_APP} 
+              target="_blank" 
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:-translate-y-1"
+            >
+              <Layout className="w-5 h-5" />
+              Lihat Demo App
+            </a>
+            <a 
+              href="#savings" 
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-blue-500 text-slate-700 hover:text-blue-700 px-8 py-4 rounded-xl text-lg font-bold shadow-sm transition"
+            >
               <Calculator className="w-5 h-5" />
-              Cek Kesehatan Bisnis (Gratis)
-            </a>
-            <a href="#solution" className="w-full md:w-auto px-8 py-4 rounded-xl text-lg font-semibold text-slate-600 hover:bg-slate-50 border border-slate-200 transition">
-              Pelajari Cara Kerjanya
+              Hitung Penghematan
             </a>
           </div>
-          <p className="text-xs text-slate-400 mt-4">
-            *Tools audit ini telah digunakan oleh 50+ Business Owner bulan ini.
+
+          <p className="text-xs text-slate-400 pt-4">
+            *Sudah termasuk Source Code Deployment & Google Sheets Integration.
           </p>
         </div>
       </section>
 
-      {/* --- PROBLEM SECTION (AGITATION) --- */}
-      <section id="problem" className="py-20 bg-slate-50 px-6">
+      {/* --- COST SAVING SECTION (THE KILLER DIFFERENTIATION) --- */}
+      <section id="savings" className="py-24 bg-white px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Kenapa Software Lama Gagal?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Card 1 */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
-                <XCircle className="w-6 h-6 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Google Sheets Chaos</h3>
-              <p className="text-slate-500">
-                Excel itu fleksibel, tapi rawan error. Rumus terhapus, data tertimpa, dan tidak bisa menghasilkan laporan keuangan standar yang dipercaya Bank/Investor.
-              </p>
-            </div>
-            {/* Card 2 */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
-                <Lock className="w-6 h-6 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Jebakan Langganan SaaS</h3>
-              <p className="text-slate-500">
-                Software akuntansi cloud memaksa Anda bayar bulanan seumur hidup. Jika berhenti bayar, data hilang. Fiturnya kaku dan sulit dikustomisasi.
-              </p>
-            </div>
-            {/* Card 3 */}
-            <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
-                <BarChart3 className="w-6 h-6 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">Buta Data Produksi</h3>
-              <p className="text-slate-500">
-                Kebanyakan software cuma catat uang masuk/keluar. Tidak bisa hitung HPP Manufaktur (Waste, Yield, Labor) secara detail. Akhirnya profit semu.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* --- SOLUTION SECTION (HYBRID) --- */}
-      <section id="solution" className="py-20 px-6 bg-slate-900 text-white overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <div className="max-w-6xl mx-auto relative z-10 flex flex-col md:flex-row items-center gap-12">
-          <div className="flex-1 space-y-6">
-            <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
-              The Best of Both Worlds. <br/>
-              <span className="text-blue-400">Hybrid System.</span>
-            </h2>
-            <p className="text-slate-300 text-lg leading-relaxed">
-              Metalurgi menggabungkan kecepatan input Google Sheets dengan kecerdasan visualisasi Web Dashboard.
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl font-bold text-slate-900">Matematika Bisnis Sederhana</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">
+              Lihat berapa banyak uang yang Anda "bakar" hanya untuk menyewa software yang datanya bukan milik Anda.
             </p>
-            <ul className="space-y-4 pt-4">
-              <li className="flex items-center gap-3">
-                <CheckCircle2 className="text-green-400" />
-                <span>Admin input massal di Google Sheets (Copy-Paste friendly).</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <CheckCircle2 className="text-green-400" />
-                <span>Owner pantau Dashboard di HP secara Real-time.</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <CheckCircle2 className="text-green-400" />
-                <span>Lifetime License. Sekali bayar, milik Anda selamanya.</span>
-              </li>
-            </ul>
           </div>
-          <div className="flex-1 bg-white/10 p-6 rounded-2xl backdrop-blur-sm border border-white/20">
-             {/* Mockup Visual Sederhana */}
-             <div className="bg-white rounded-lg p-4 shadow-2xl">
-                <div className="flex gap-2 mb-4 border-b pb-2">
-                   <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                   <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                   <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-                <div className="space-y-3">
-                   <div className="h-20 bg-blue-50 rounded w-full flex items-center justify-center text-blue-800 font-bold text-xs">VISUALISASI DASHBOARD</div>
-                   <div className="grid grid-cols-2 gap-2">
-                      <div className="h-12 bg-slate-100 rounded"></div>
-                      <div className="h-12 bg-slate-100 rounded"></div>
-                   </div>
-                   <div className="h-8 bg-slate-100 rounded w-2/3"></div>
-                </div>
-             </div>
-             <p className="text-center text-xs text-slate-400 mt-4">Database: Spreadsheet Anda Sendiri</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            {/* KIRI: Tabel Perbandingan */}
+            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
+               <h3 className="font-bold text-xl mb-6 flex items-center gap-2">
+                 <XCircle className="text-red-500"/> Biaya Software Langganan (SaaS)
+               </h3>
+               <div className="space-y-4">
+                  <div className="flex justify-between border-b border-slate-200 pb-2">
+                     <span className="text-slate-500">Biaya per Bulan (Paket Enterprise)</span>
+                     <span className="font-mono font-bold">Rp 750.000</span>
+                  </div>
+                  <div className="flex justify-between border-b border-slate-200 pb-2">
+                     <span className="text-slate-500">Biaya Tambahan User (5 Staff)</span>
+                     <span className="font-mono font-bold">+ Rp 250.000</span>
+                  </div>
+                  <div className="flex justify-between border-b border-slate-200 pb-2 bg-red-50 p-2 rounded">
+                     <span className="text-red-700 font-bold">Total Biaya 5 Tahun</span>
+                     <span className="font-mono font-bold text-red-700">Rp 60.000.000+</span>
+                  </div>
+               </div>
+               <p className="text-xs text-slate-400 mt-4 italic">
+                 *Belum termasuk biaya training ulang jika ganti staff & risiko harga naik tiap tahun.
+               </p>
+            </div>
+
+            {/* KANAN: Metalurgi Value */}
+            <div className="bg-blue-900 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden transform md:scale-105 border-4 border-white">
+               <div className="absolute top-0 right-0 p-4 bg-green-500 text-xs font-bold rounded-bl-xl">
+                 BEST VALUE
+               </div>
+               <h3 className="font-bold text-xl mb-6 flex items-center gap-2">
+                 <CheckCircle2 className="text-green-400"/> Metalurgi Lifetime License
+               </h3>
+               <div className="space-y-6">
+                  <div className="flex justify-between items-center border-b border-blue-700 pb-4">
+                     <span className="text-blue-200">Biaya Bulanan</span>
+                     <span className="font-mono font-bold text-2xl text-green-400">Rp 0</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-blue-700 pb-4">
+                     <span className="text-blue-200">Batasan User</span>
+                     <span className="font-bold">UNLIMITED</span>
+                  </div>
+                  <div className="bg-white/10 p-4 rounded-xl text-center">
+                     <p className="text-sm text-blue-200 mb-1">Anda Cukup Bayar Sekali</p>
+                     <p className="text-3xl font-extrabold text-white">Investasi Aset</p>
+                     <p className="text-xs text-blue-300 mt-2">(Harga setara sewa 1 tahun kompetitor)</p>
+                  </div>
+               </div>
+               <div className="mt-8">
+                 <a href={LINK_BOOKING_WA} target="_blank" className="block w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-lg transition">
+                    Tanya Harga Lifetime Sekarang
+                 </a>
+               </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* --- LEAD MAGNET SECTION (CTA UTAMA) --- */}
-      <section className="py-24 px-6 bg-blue-600 text-white text-center">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold">Jangan Beli Software Dulu Sebelum Audit.</h2>
-          <p className="text-blue-100 text-lg">
-            Gunakan tools "Vitality Scorecard" kami untuk mendiagnosa kebocoran profit, runway cashflow, dan efisiensi stok Anda. Gratis.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-             <a href={LINK_LEAD_MAGNET} target="_blank" className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2">
-               <Calculator className="w-5 h-5" />
-               Download Scorecard Sekarang
-             </a>
-             <a href={LINK_WA_CONSULT} target="_blank" className="border border-white/30 hover:bg-white/10 px-8 py-4 rounded-xl text-lg font-bold transition flex items-center justify-center gap-2">
-               Chat Tim Metalurgi
+      {/* --- ENTERPRISE FEATURES LIST --- */}
+      <section id="features" className="py-20 bg-slate-50 px-6">
+        <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+                <h2 className="text-3xl font-bold text-slate-900">Fitur Sekelas ERP Ratusan Juta</h2>
+                <p className="text-slate-500">Kami tidak memangkas fitur, kami memangkas biayanya.</p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                    {title: "Costing Intelligence", desc: "Hitung HPP Manufaktur, Waste, Yield & Labor secara presisi."},
+                    {title: "Hybrid Database", desc: "Input massal via Google Sheets, output via Web Dashboard."},
+                    {title: "Inventory Control", desc: "Stock Card real-time, Stock Opname audit system."},
+                    {title: "Investor View", desc: "Mode transparan untuk laporan ke investor/bank."},
+                    {title: "POS System", desc: "Kasir digital terintegrasi langsung ke jurnal."},
+                    {title: "Payroll Engine", desc: "Hitung gaji borongan/harian masuk ke HPP."},
+                    {title: "Transaction Module", desc: "Catat hutang/piutang B2B dengan tempo."},
+                    {title: "Auto Accounting", desc: "Jurnal & Laporan Keuangan terbentuk otomatis."},
+                ].map((item, idx) => (
+                    <div key={idx} className="bg-white p-6 rounded-xl border border-slate-100 hover:shadow-md transition">
+                        <CheckCircle2 className="w-8 h-8 text-blue-600 mb-3" />
+                        <h4 className="font-bold text-slate-900 mb-2">{item.title}</h4>
+                        <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+      </section>
+
+      {/* --- STRATEGIC ADD-ONS (THE SOUL) --- */}
+      <section id="addons" className="py-24 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-16">
+            <span className="text-blue-600 font-bold tracking-wide text-sm uppercase">Strategic Add-ons (A La Carte)</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">
+               Software itu "Fisik", Support itu "Nyawa".
+            </h2>
+            <p className="text-slate-500 max-w-2xl text-lg">
+              Terkadang software saja tidak cukup. Maksimalkan transisi digital Anda dengan dukungan tenaga ahli kami (Opsional).
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+             {/* Service 1 */}
+             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition group">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-700 group-hover:bg-blue-600 group-hover:text-white transition">
+                   <TrendingUp className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Executive Finance Coaching</h3>
+                <p className="text-sm font-semibold text-blue-600 mb-4">Untuk Business Owner</p>
+                <p className="text-slate-500 leading-relaxed">
+                   Jangan hanya melihat angka, pahami ceritanya. Sesi privat khusus Owner (Non-Finance) untuk belajar membaca dashboard, memahami istilah vital, dan presentasi ke Investor dengan percaya diri.
+                </p>
+             </div>
+
+             {/* Service 2 */}
+             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-purple-300 transition group">
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6 text-purple-700 group-hover:bg-purple-600 group-hover:text-white transition">
+                   <Users className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Extended Admin Support</h3>
+                <p className="text-sm font-semibold text-purple-600 mb-4">Untuk Staff Operasional</p>
+                <p className="text-slate-500 leading-relaxed">
+                   Asuransi operasional Anda. Jika admin butuh waktu adaptasi lama, kami perpanjang masa pendampingan. Tim kami memonitor input harian via Group Chat untuk meminimalisir Human Error.
+                </p>
+             </div>
+
+             {/* Service 3 */}
+             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-green-300 transition group">
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6 text-green-700 group-hover:bg-green-600 group-hover:text-white transition">
+                   <ShieldCheck className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Monthly Data Health Check</h3>
+                <p className="text-sm font-semibold text-green-600 mb-4">Virtual Controller</p>
+                <p className="text-slate-500 leading-relaxed">
+                   Seperti memiliki Manager Finance pribadi. Akhir bulan, kami audit ringan (validasi data & rekonsiliasi) sebelum laporan dipublish. Data akurat, seimbang, dan bebas kesalahan memalukan.
+                </p>
+             </div>
+
+             {/* Service 4 */}
+             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-orange-300 transition group">
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6 text-orange-700 group-hover:bg-orange-600 group-hover:text-white transition">
+                   <BrainCircuit className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Budgeting Workshop</h3>
+                <p className="text-sm font-semibold text-orange-600 mb-4">Strategic Planning</p>
+                <p className="text-slate-500 leading-relaxed">
+                   Workshop khusus membantu manajemen menyusun target tahunan dan budget operasional yang realistis untuk dimasukkan ke dalam sistem monitoring Metalurgi.
+                </p>
+             </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+             <a href={LINK_BOOKING_WA} target="_blank" className="inline-flex items-center gap-2 text-slate-600 hover:text-blue-700 font-bold border-b-2 border-slate-200 hover:border-blue-600 pb-1 transition">
+               Tanya Detail Paket Add-ons <ArrowRight className="w-4 h-4" />
              </a>
           </div>
-          <p className="text-sm text-blue-200 mt-6">
-            *Dapatkan juga akses ke Grup Mentoring Bisnis Eksklusif setelah download.
+        </div>
+      </section>
+
+      {/* --- CTA SECTION (LEAD MAGNET) --- */}
+      <section className="py-24 px-6 bg-slate-900 text-white text-center relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 opacity-20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+        
+        <div className="max-w-4xl mx-auto space-y-8 relative z-10">
+          <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
+            Diagnosa Dulu, Beli Belakangan.
+          </h2>
+          <p className="text-slate-300 text-xl max-w-2xl mx-auto">
+            Sebelum memutuskan beli Lifetime License, cek apakah bisnis Anda memang "bocor" secara finansial menggunakan Scorecard kami.
           </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+             <a 
+               href={LINK_LEAD_MAGNET} 
+               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2"
+             >
+               <Calculator className="w-5 h-5" />
+               Download Vitality Scorecard (Gratis)
+             </a>
+             <a 
+               href={LINK_BOOKING_WA} 
+               target="_blank" 
+               className="border-2 border-white/20 hover:bg-white/10 hover:border-white px-8 py-4 rounded-xl text-lg font-bold transition flex items-center justify-center gap-2"
+             >
+               <MessageSquare className="w-5 h-5" />
+               Konsultasi via WhatsApp
+             </a>
+          </div>
         </div>
       </section>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-slate-900 text-slate-400 py-12 px-6 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2 font-bold text-white">
-            <Database className="w-5 h-5 text-blue-500" />
-            METALURGI
-          </div>
-          <div className="text-sm">
-            © 2026 Metalurgi Ecosystem. All rights reserved.
-          </div>
-          <div className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-white transition">Privacy</a>
-            <a href="#" className="hover:text-white transition">Terms</a>
-            <a href="#" className="hover:text-white transition">LinkedIn</a>
-          </div>
+      <footer className="bg-white border-t border-slate-200 pt-16 pb-8 px-6 text-slate-500">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+           <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center gap-2 font-black text-xl tracking-tighter text-slate-900 mb-4">
+                <div className="w-6 h-6 bg-blue-700 rounded flex items-center justify-center text-white">
+                  <Database className="w-3 h-3" />
+                </div>
+                METALURGI
+              </div>
+              <p className="text-slate-500 text-sm leading-relaxed max-w-xs">
+                Business Operating System (BOS) Hybrid untuk UMKM Indonesia. 
+                Fokus pada Manufaktur, Trading, & Jasa. Tanpa biaya langganan.
+              </p>
+           </div>
+           
+           <div>
+              <h4 className="font-bold text-slate-900 mb-4">Product</h4>
+              <ul className="space-y-2 text-sm">
+                 <li><a href={LINK_DEMO_APP} className="hover:text-blue-700">Live Demo</a></li>
+                 <li><a href="#savings" className="hover:text-blue-700">Pricing Comparison</a></li>
+                 <li><a href={LINK_LEAD_MAGNET} className="hover:text-blue-700">Vitality Scorecard</a></li>
+              </ul>
+           </div>
+           
+           <div>
+              <h4 className="font-bold text-slate-900 mb-4">Contact</h4>
+              <ul className="space-y-2 text-sm">
+                 <li><a href={LINK_BOOKING_WA} className="hover:text-blue-700">WhatsApp Support</a></li>
+                 <li><a href="mailto:hello@metalurgi.id" className="hover:text-blue-700">Email Us</a></li>
+              </ul>
+           </div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+           <div>© 2026 Metalurgi Ecosystem. All rights reserved.</div>
         </div>
       </footer>
     </main>
