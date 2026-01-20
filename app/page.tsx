@@ -79,7 +79,7 @@ export default function Home() {
               className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:-translate-y-1"
             >
               <Activity className="w-5 h-5" />
-              Cek Kesehatan Bisnis Dulu
+              Cek Kesehatan Bisnis (GRATIS)
             </a>
             <a 
               href={LINK_DEMO_APP} 
