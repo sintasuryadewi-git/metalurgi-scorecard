@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export default function Home() {
   // GANTI LINK INI DENGAN LINK FORM TALLY/GOOGLE FORM ANDA
-  const LINK_LEAD_MAGNET = "https://tally.so/r/w7XO0p"; // Contoh, ganti punya Anda
+  const LINK_LEAD_MAGNET = "/result"; // Contoh, ganti punya Anda
   const LINK_WA_CONSULT = "https://wa.me/6281234567890"; // Ganti No WA
 
   return (
