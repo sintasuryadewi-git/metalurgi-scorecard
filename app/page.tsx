@@ -12,7 +12,8 @@ import {
   ShieldCheck,
   TrendingUp,
   BrainCircuit,
-  CalendarCheck
+  Activity,
+  ArrowDown
 } from 'lucide-react';
 
 export default function Home() {
@@ -35,8 +36,8 @@ export default function Home() {
           </div>
           
           <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600">
+            <a href="#bridge" className="hover:text-blue-700 transition">Diagnosa vs Solusi</a>
             <a href="#savings" className="hover:text-blue-700 transition">Hitung Hematnya</a>
-            <a href="#features" className="hover:text-blue-700 transition">Fitur Enterprise</a>
             <a href="#addons" className="hover:text-blue-700 transition">Layanan Support</a>
           </div>
 
@@ -52,8 +53,8 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* --- HERO SECTION (LIFETIME LICENSE FOCUS) --- */}
-      <section className="pt-32 pb-24 px-6 bg-slate-50 relative overflow-hidden">
+      {/* --- HERO SECTION --- */}
+      <section className="pt-32 pb-20 px-6 bg-slate-50 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]"></div>
 
@@ -69,36 +70,133 @@ export default function Home() {
           
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Miliki <strong>Business Operating System (BOS)</strong> Anda sendiri selamanya. 
-            Hemat puluhan juta rupiah per tahun dengan menghapus biaya sewa software (SaaS). 
-            Satu harga, Unlimited User, Database Milik Anda.
+            Jangan tebak-tebakan soal profit. Mulai dengan diagnosa kesehatan bisnis Anda hari ini.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
             <a 
+              href={LINK_LEAD_MAGNET} 
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:-translate-y-1"
+            >
+              <Activity className="w-5 h-5" />
+              Cek Kesehatan Bisnis Dulu
+            </a>
+            <a 
               href={LINK_DEMO_APP} 
               target="_blank" 
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:-translate-y-1"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-blue-500 text-slate-700 hover:text-blue-700 px-8 py-4 rounded-xl text-lg font-bold shadow-sm transition"
             >
               <Layout className="w-5 h-5" />
               Lihat Demo App
             </a>
-            <a 
-              href="#savings" 
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white border border-slate-200 hover:border-blue-500 text-slate-700 hover:text-blue-700 px-8 py-4 rounded-xl text-lg font-bold shadow-sm transition"
-            >
-              <Calculator className="w-5 h-5" />
-              Hitung Penghematan
-            </a>
           </div>
-
-          <p className="text-xs text-slate-400 pt-4">
-            *Sudah termasuk Source Code Deployment & Google Sheets Integration.
-          </p>
         </div>
       </section>
 
-      {/* --- COST SAVING SECTION (THE KILLER DIFFERENTIATION) --- */}
-      <section id="savings" className="py-24 bg-white px-6">
+      {/* --- NEW SECTION: THE DIAGNOSTIC BRIDGE (PENTING!) --- */}
+      <section id="bridge" className="py-16 px-6 bg-white border-b border-slate-100 relative">
+        <div className="max-w-6xl mx-auto">
+           {/* Section Header */}
+           <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                Apa Hubungan <span className="text-blue-600">Scorecard</span> & <span className="text-slate-900">Metalurgi App</span>?
+              </h2>
+              <p className="text-slate-500 mt-2">
+                Layaknya dokter, kami mendiagnosa penyakit Anda dulu (lewat Scorecard), <br/>baru memberikan resep obat yang tepat (lewat Metalurgi App).
+              </p>
+           </div>
+
+           {/* The Bridge Visual */}
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+              
+              {/* KOLOM 1: GEJALA (SCORECARD) */}
+              <div className="bg-red-50 p-6 rounded-2xl border border-red-100 relative">
+                 <div className="absolute -top-4 left-6 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    DIAGNOSA (SCORECARD)
+                 </div>
+                 <h3 className="font-bold text-red-900 mb-4 mt-2">Jika Hasil Scorecard Anda:</h3>
+                 <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                       <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5"/>
+                       <div className="text-sm text-red-800">
+                          <strong>Runway &lt; 3 Bulan:</strong><br/>
+                          Cashflow kritis, uang macet di piutang/stok.
+                       </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                       <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5"/>
+                       <div className="text-sm text-red-800">
+                          <strong>Margin Tipis:</strong><br/>
+                          Profit tergerus "biaya siluman" (Waste/Labor) yang tak terhitung.
+                       </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                       <XCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5"/>
+                       <div className="text-sm text-red-800">
+                          <strong>Stok Selisih:</strong><br/>
+                          Barang di gudang hilang atau rusak tanpa terlacak.
+                       </div>
+                    </li>
+                 </ul>
+              </div>
+
+              {/* KOLOM 2: ARROW CONNECTION */}
+              <div className="flex flex-col items-center justify-center text-slate-400 gap-2">
+                 <div className="hidden md:block">
+                    <ArrowRight className="w-12 h-12 text-slate-300 animate-pulse" />
+                 </div>
+                 <div className="md:hidden">
+                    <ArrowDown className="w-12 h-12 text-slate-300 animate-pulse" />
+                 </div>
+                 <p className="text-xs font-bold text-center">SOLUSI METALURGI</p>
+              </div>
+
+              {/* KOLOM 3: OBAT (METALURGI APP) */}
+              <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 relative">
+                 <div className="absolute -top-4 left-6 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full">
+                    SOLUSI (METALURGI APP)
+                 </div>
+                 <h3 className="font-bold text-blue-900 mb-4 mt-2">Maka Fitur Ini Obatnya:</h3>
+                 <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                       <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"/>
+                       <div className="text-sm text-blue-800">
+                          <strong>Cashflow Monitor:</strong><br/>
+                          Dashboard Runway real-time & Aging Piutang agar kas aman.
+                       </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                       <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"/>
+                       <div className="text-sm text-blue-800">
+                          <strong>Costing Intelligence:</strong><br/>
+                          Hitung HPP presisi (termasuk Yield & Labor) agar margin sehat.
+                       </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                       <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5"/>
+                       <div className="text-sm text-blue-800">
+                          <strong>Inventory Audit:</strong><br/>
+                          Sistem Stock Opname digital & pelacakan stok real-time.
+                       </div>
+                    </li>
+                 </ul>
+              </div>
+
+           </div>
+           
+           <div className="text-center mt-10">
+              <p className="text-sm text-slate-500 mb-4">
+                 Jangan beli "Obat" sebelum tahu "Penyakitnya". Lakukan check-up gratis sekarang.
+              </p>
+              <a href={LINK_LEAD_MAGNET} className="inline-flex items-center gap-2 text-blue-700 font-bold hover:text-blue-900 underline transition">
+                 Mulai Diagnosa Bisnis Saya <ArrowRight className="w-4 h-4"/>
+              </a>
+           </div>
+        </div>
+      </section>
+
+      {/* --- COST SAVING SECTION --- */}
+      <section id="savings" className="py-24 bg-slate-50 px-6 border-t border-slate-200">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-3xl font-bold text-slate-900">Matematika Bisnis Sederhana</h2>
@@ -109,20 +207,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* KIRI: Tabel Perbandingan */}
-            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
-               <h3 className="font-bold text-xl mb-6 flex items-center gap-2">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+               <h3 className="font-bold text-xl mb-6 flex items-center gap-2 text-slate-800">
                  <XCircle className="text-red-500"/> Biaya Software Langganan (SaaS)
                </h3>
                <div className="space-y-4">
-                  <div className="flex justify-between border-b border-slate-200 pb-2">
+                  <div className="flex justify-between border-b border-slate-100 pb-2">
                      <span className="text-slate-500">Biaya per Bulan (Paket Enterprise)</span>
                      <span className="font-mono font-bold">Rp 750.000</span>
                   </div>
-                  <div className="flex justify-between border-b border-slate-200 pb-2">
+                  <div className="flex justify-between border-b border-slate-100 pb-2">
                      <span className="text-slate-500">Biaya Tambahan User (5 Staff)</span>
                      <span className="font-mono font-bold">+ Rp 250.000</span>
                   </div>
-                  <div className="flex justify-between border-b border-slate-200 pb-2 bg-red-50 p-2 rounded">
+                  <div className="flex justify-between border-b border-slate-100 pb-2 bg-red-50 p-2 rounded">
                      <span className="text-red-700 font-bold">Total Biaya 5 Tahun</span>
                      <span className="font-mono font-bold text-red-700">Rp 60.000.000+</span>
                   </div>
@@ -133,7 +231,7 @@ export default function Home() {
             </div>
 
             {/* KANAN: Metalurgi Value */}
-            <div className="bg-blue-900 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden transform md:scale-105 border-4 border-white">
+            <div className="bg-slate-900 text-white rounded-2xl p-8 shadow-2xl relative overflow-hidden transform md:scale-105 border-4 border-white ring-1 ring-slate-200">
                <div className="absolute top-0 right-0 p-4 bg-green-500 text-xs font-bold rounded-bl-xl">
                  BEST VALUE
                </div>
@@ -141,18 +239,18 @@ export default function Home() {
                  <CheckCircle2 className="text-green-400"/> Metalurgi Lifetime License
                </h3>
                <div className="space-y-6">
-                  <div className="flex justify-between items-center border-b border-blue-700 pb-4">
-                     <span className="text-blue-200">Biaya Bulanan</span>
+                  <div className="flex justify-between items-center border-b border-slate-700 pb-4">
+                     <span className="text-slate-300">Biaya Bulanan</span>
                      <span className="font-mono font-bold text-2xl text-green-400">Rp 0</span>
                   </div>
-                  <div className="flex justify-between items-center border-b border-blue-700 pb-4">
-                     <span className="text-blue-200">Batasan User</span>
+                  <div className="flex justify-between items-center border-b border-slate-700 pb-4">
+                     <span className="text-slate-300">Batasan User</span>
                      <span className="font-bold">UNLIMITED</span>
                   </div>
                   <div className="bg-white/10 p-4 rounded-xl text-center">
-                     <p className="text-sm text-blue-200 mb-1">Anda Cukup Bayar Sekali</p>
+                     <p className="text-sm text-slate-300 mb-1">Anda Cukup Bayar Sekali</p>
                      <p className="text-3xl font-extrabold text-white">Investasi Aset</p>
-                     <p className="text-xs text-blue-300 mt-2">(Harga setara sewa 1 tahun kompetitor)</p>
+                     <p className="text-xs text-slate-400 mt-2">(Harga setara sewa 1 tahun kompetitor)</p>
                   </div>
                </div>
                <div className="mt-8">
@@ -166,7 +264,7 @@ export default function Home() {
       </section>
 
       {/* --- ENTERPRISE FEATURES LIST --- */}
-      <section id="features" className="py-20 bg-slate-50 px-6">
+      <section id="features" className="py-20 bg-white px-6">
         <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
                 <h2 className="text-3xl font-bold text-slate-900">Fitur Sekelas ERP Ratusan Juta</h2>
@@ -183,7 +281,7 @@ export default function Home() {
                     {title: "Transaction Module", desc: "Catat hutang/piutang B2B dengan tempo."},
                     {title: "Auto Accounting", desc: "Jurnal & Laporan Keuangan terbentuk otomatis."},
                 ].map((item, idx) => (
-                    <div key={idx} className="bg-white p-6 rounded-xl border border-slate-100 hover:shadow-md transition">
+                    <div key={idx} className="bg-slate-50 p-6 rounded-xl border border-slate-100 hover:shadow-md transition hover:border-blue-200">
                         <CheckCircle2 className="w-8 h-8 text-blue-600 mb-3" />
                         <h4 className="font-bold text-slate-900 mb-2">{item.title}</h4>
                         <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
@@ -194,7 +292,7 @@ export default function Home() {
       </section>
 
       {/* --- STRATEGIC ADD-ONS (THE SOUL) --- */}
-      <section id="addons" className="py-24 px-6 bg-white">
+      <section id="addons" className="py-24 px-6 bg-slate-50 border-t border-slate-200">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
             <span className="text-blue-600 font-bold tracking-wide text-sm uppercase">Strategic Add-ons (A La Carte)</span>
@@ -208,7 +306,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
              {/* Service 1 */}
-             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition group">
+             <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-blue-300 transition group hover:shadow-lg">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6 text-blue-700 group-hover:bg-blue-600 group-hover:text-white transition">
                    <TrendingUp className="w-6 h-6" />
                 </div>
@@ -220,7 +318,7 @@ export default function Home() {
              </div>
 
              {/* Service 2 */}
-             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-purple-300 transition group">
+             <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-purple-300 transition group hover:shadow-lg">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6 text-purple-700 group-hover:bg-purple-600 group-hover:text-white transition">
                    <Users className="w-6 h-6" />
                 </div>
@@ -232,7 +330,7 @@ export default function Home() {
              </div>
 
              {/* Service 3 */}
-             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-green-300 transition group">
+             <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-green-300 transition group hover:shadow-lg">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6 text-green-700 group-hover:bg-green-600 group-hover:text-white transition">
                    <ShieldCheck className="w-6 h-6" />
                 </div>
@@ -244,7 +342,7 @@ export default function Home() {
              </div>
 
              {/* Service 4 */}
-             <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-orange-300 transition group">
+             <div className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-orange-300 transition group hover:shadow-lg">
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6 text-orange-700 group-hover:bg-orange-600 group-hover:text-white transition">
                    <BrainCircuit className="w-6 h-6" />
                 </div>
@@ -265,21 +363,21 @@ export default function Home() {
       </section>
 
       {/* --- CTA SECTION (LEAD MAGNET) --- */}
-      <section className="py-24 px-6 bg-slate-900 text-white text-center relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600 opacity-20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+      <section className="py-24 px-6 bg-blue-700 text-white text-center relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
         
         <div className="max-w-4xl mx-auto space-y-8 relative z-10">
           <h2 className="text-3xl md:text-5xl font-extrabold leading-tight">
             Diagnosa Dulu, Beli Belakangan.
           </h2>
-          <p className="text-slate-300 text-xl max-w-2xl mx-auto">
-            Sebelum memutuskan beli Lifetime License, cek apakah bisnis Anda memang "bocor" secara finansial menggunakan Scorecard kami.
+          <p className="text-blue-100 text-xl max-w-2xl mx-auto">
+            Jangan biarkan bisnis Anda berjalan tanpa arah. Gunakan <strong>Vitality Scorecard</strong> untuk melihat kondisi finansial Anda yang sebenarnya.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
              <a 
                href={LINK_LEAD_MAGNET} 
-               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2"
+               className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl text-lg font-bold shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-2"
              >
                <Calculator className="w-5 h-5" />
                Download Vitality Scorecard (Gratis)
@@ -287,12 +385,15 @@ export default function Home() {
              <a 
                href={LINK_BOOKING_WA} 
                target="_blank" 
-               className="border-2 border-white/20 hover:bg-white/10 hover:border-white px-8 py-4 rounded-xl text-lg font-bold transition flex items-center justify-center gap-2"
+               className="border-2 border-white/30 hover:bg-white/10 hover:border-white px-8 py-4 rounded-xl text-lg font-bold transition flex items-center justify-center gap-2"
              >
                <MessageSquare className="w-5 h-5" />
                Konsultasi via WhatsApp
              </a>
           </div>
+          <p className="text-sm text-blue-200 mt-6 opacity-80">
+            *Bergabunglah dengan 50+ Business Owner di Grup Mentoring Eksklusif setelah download.
+          </p>
         </div>
       </section>
 
