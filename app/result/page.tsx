@@ -40,7 +40,7 @@ function OnboardingView() {
 
       <div className="pt-24 px-6 md:px-12 max-w-7xl mx-auto space-y-20">
         
-        {/* HERO SECTION */}
+        {/* --- SECTION 1: HERO & ACTION --- */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-900/50 border border-blue-500 text-blue-300 text-xs font-bold">
@@ -54,14 +54,30 @@ function OnboardingView() {
               Jangan menebak-nebak kondisi keuangan. Gunakan template Excel kami untuk input data operasional riil Anda. Sistem akan menganalisa "Runway" dan "Kebocoran" bisnis Anda dalam hitungan detik.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* Steps Visual (Restored) */}
+            <div className="space-y-4 pt-2 border-l-2 border-slate-800 pl-4">
+              <div className="flex items-center gap-4">
+                <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xs">1</div>
+                <div className="text-sm text-slate-300">Download Template Google Sheets</div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xs">2</div>
+                <div className="text-sm text-slate-300">Isi Kolom Kuning (Kas, HPP, Stok)</div>
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center font-bold text-xs">3</div>
+                <div className="text-sm text-slate-300">Klik Tombol "Lihat Hasil" di Excel</div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
                <a 
                 href={COPY_URL} 
                 target="_blank"
                 className="inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-lg shadow-blue-900/20 transition-all transform hover:-translate-y-1"
               >
                 <FileSpreadsheet className="w-5 h-5" />
-                Mulai Diagnosa Sekarang
+                Buka Template Scorecard
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a 
@@ -73,84 +89,95 @@ function OnboardingView() {
                 Tanya Tim Cara Diagnosa
               </a>
             </div>
-            <p className="text-xs text-slate-500">
-                *Butuh akun Google (Gmail) untuk akses Template.
-            </p>
           </div>
 
-          {/* VISUAL PREVIEW (Menggunakan Screenshot User) */}
+          {/* VISUAL PREVIEW (Screenshot) */}
           <div className="relative">
              <div className="absolute inset-0 bg-blue-500 blur-[80px] opacity-20 rounded-full"></div>
              <div className="relative group">
-                {/* Frame Browser Mockup */}
                 <div className="bg-slate-800 rounded-xl border border-slate-700 shadow-2xl overflow-hidden transform group-hover:scale-[1.02] transition duration-500">
                     <div className="h-8 bg-slate-900 border-b border-slate-700 flex items-center px-4 gap-2">
                         <div className="w-3 h-3 rounded-full bg-red-500"></div>
                         <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                         <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
-                    {/* GAMBAR SCREENSHOT ANDA DISINI */}
-                    {/* Pastikan file 'preview-dashboard.png' ada di folder 'public' */}
+                    {/* PASTIKAN FILE preview-dashboard.png ADA DI FOLDER PUBLIC */}
                     <img 
                         src="/preview-dashboard.png" 
                         alt="Preview Hasil Diagnosa Metalurgi" 
-                        className="w-full h-auto object-cover"
+                        className="w-full h-auto object-cover opacity-90 hover:opacity-100 transition"
                     />
-                </div>
-                
-                {/* Floating Badge */}
-                <div className="absolute -bottom-6 -left-6 bg-slate-900 border border-slate-700 p-4 rounded-xl shadow-xl flex items-center gap-3">
-                   <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                      <Target className="w-5 h-5 text-white" />
-                   </div>
-                   <div>
-                      <div className="text-xs text-slate-400 font-bold uppercase">Output Result</div>
-                      <div className="font-bold text-sm text-white">Laporan PDF Ready</div>
-                   </div>
                 </div>
              </div>
           </div>
         </div>
 
-        {/* SECTION: WHAT YOU GET */}
-        <div className="border-t border-slate-800 pt-20">
+        {/* --- SECTION 2: APA YANG ANDA DAPATKAN (NEW) --- */}
+        <div className="border-t border-slate-800 pt-16">
            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl font-bold mb-4">Apa yang Akan Anda Dapatkan?</h2>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">Output Analisa (Yang Akan Anda Dapatkan)</h2>
               <p className="text-slate-400">
-                Setelah mengisi data, sistem AI kami akan memberikan 3 indikator vital ini:
+                AI kami akan mengubah angka mentah Anda menjadi 3 insight strategis ini:
               </p>
            </div>
-
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Feature 1 */}
               <div className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700">
-                 <div className="w-10 h-10 bg-red-900/50 text-red-400 rounded-lg flex items-center justify-center mb-4">
-                    <Activity className="w-5 h-5" />
-                 </div>
+                 <div className="w-10 h-10 bg-red-900/50 text-red-400 rounded-lg flex items-center justify-center mb-4"><Activity className="w-5 h-5" /></div>
                  <h3 className="font-bold text-lg mb-2 text-white">1. Business Runway</h3>
-                 <p className="text-sm text-slate-400">
-                    Mengetahui berapa bulan persisnya bisnis Anda bisa bertahan jika penjualan berhenti hari ini.
-                 </p>
+                 <p className="text-sm text-slate-400">Prediksi akurat sisa umur bisnis (bulan) jika penjualan berhenti total hari ini.</p>
               </div>
-              {/* Feature 2 */}
               <div className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700">
-                 <div className="w-10 h-10 bg-purple-900/50 text-purple-400 rounded-lg flex items-center justify-center mb-4">
-                    <BarChart4 className="w-5 h-5" />
-                 </div>
-                 <h3 className="font-bold text-lg mb-2 text-white">2. Margin Health</h3>
-                 <p className="text-sm text-slate-400">
-                    Mendeteksi apakah profit Anda "Real" atau "Semu" karena kesalahan hitung HPP (Waste/Labor).
-                 </p>
+                 <div className="w-10 h-10 bg-purple-900/50 text-purple-400 rounded-lg flex items-center justify-center mb-4"><BarChart4 className="w-5 h-5" /></div>
+                 <h3 className="font-bold text-lg mb-2 text-white">2. Real Margin Check</h3>
+                 <p className="text-sm text-slate-400">Deteksi "Phantom Profit" akibat kesalahan hitung HPP (Waste/Labor cost).</p>
               </div>
-              {/* Feature 3 */}
               <div className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700">
-                 <div className="w-10 h-10 bg-orange-900/50 text-orange-400 rounded-lg flex items-center justify-center mb-4">
-                    <ShieldAlert className="w-5 h-5" />
+                 <div className="w-10 h-10 bg-orange-900/50 text-orange-400 rounded-lg flex items-center justify-center mb-4"><ShieldAlert className="w-5 h-5" /></div>
+                 <h3 className="font-bold text-lg mb-2 text-white">3. Inventory Audit</h3>
+                 <p className="text-sm text-slate-400">Analisa efisiensi gudang. Apakah uang Anda mati menjadi stok usang?</p>
+              </div>
+           </div>
+        </div>
+
+        {/* --- SECTION 3: KENAPA PERLU DIAGNOSA (RESTORED) --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-10">
+           <div>
+              <h2 className="text-3xl font-bold mb-6">Kenapa Bisnis Perlu "Check-Up"?</h2>
+              <div className="space-y-6">
+                 <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
+                       <ShieldAlert className="w-6 h-6 text-red-400" />
+                    </div>
+                    <div>
+                       <h4 className="font-bold text-lg">Deteksi "Silent Killer"</h4>
+                       <p className="text-slate-400 text-sm mt-1">Kebocoran profit kecil yang tidak terlihat (seperti selisih stok 1-2%) bisa membunuh bisnis dalam jangka panjang.</p>
+                    </div>
                  </div>
-                 <h3 className="font-bold text-lg mb-2 text-white">3. Stock Audit</h3>
-                 <p className="text-sm text-slate-400">
-                    Menganalisa efisiensi gudang. Apakah uang Anda mati menjadi barang yang tidak laku?
-                 </p>
+                 <div className="flex gap-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center border border-slate-700">
+                       <Target className="w-6 h-6 text-green-400" />
+                    </div>
+                    <div>
+                       <h4 className="font-bold text-lg">Validasi Feeling Owner</h4>
+                       <p className="text-slate-400 text-sm mt-1">Jangan cuma "kayaknya untung". Validasi dengan data rasio keuangan yang objektif dan terukur.</p>
+                    </div>
+                 </div>
+              </div>
+           </div>
+           
+           {/* --- SECTION 4: TARGET AUDIENCE (RESTORED) --- */}
+           <div className="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-3xl border border-slate-700 text-center">
+              <h3 className="text-xl font-bold mb-6 text-white">Wajib Bagi Business Owner Yang...</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                 <span className="px-4 py-2 bg-slate-950 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">😓 Omzet naik, uang tak ada</span>
+                 <span className="px-4 py-2 bg-slate-950 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">📦 Stok sering selisih</span>
+                 <span className="px-4 py-2 bg-slate-950 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">🤯 Keuangan tercampur</span>
+                 <span className="px-4 py-2 bg-slate-950 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">🚀 Mau ekspansi tapi ragu</span>
+              </div>
+              <div className="mt-8">
+                 <a href={COPY_URL} target="_blank" className="text-blue-400 hover:text-white font-bold underline underline-offset-4 decoration-blue-500 decoration-2 transition text-sm">
+                    Mulai Diagnosa Gratis Sekarang &rarr;
+                 </a>
               </div>
            </div>
         </div>
@@ -181,11 +208,9 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
   const monthlyBurn = opex; 
   const runway = monthlyBurn > 0 ? (kas / monthlyBurn).toFixed(1) : '0';
   const runwayNum = Number(runway);
-
   const grossProfit = omzet - hpp;
   const marginPersen = omzet > 0 ? ((grossProfit / omzet) * 100).toFixed(1) : '0';
   const marginNum = Number(marginPersen);
-
   const stockMonth = hpp > 0 ? (stok / hpp).toFixed(1) : '0';
   const stockMonthNum = Number(stockMonth);
 
@@ -228,28 +253,18 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
     score += 20;
   }
 
-  // Score Tambahan
   if (piutang <= hutang) score += 15; else score += 5;
   if (pisahRekening) score += 5;
   if (validHpp) score += 5;
 
   // --- 4. DISPLAY STATUS ---
-  let diagnosisTitle = "";
-  let diagnosisText = [];
-  let statusBg = "";
-
-  if (score >= 80) {
-     diagnosisTitle = "BISNIS SEHAT (PRIME) 🟢";
-     statusBg = "bg-green-600";
-  } else if (score >= 50) {
-     diagnosisTitle = "WASPADA (WARNING) 🟡";
-     statusBg = "bg-yellow-500";
-  } else {
-     diagnosisTitle = "KRITIS (ICU) 🔴";
-     statusBg = "bg-red-700";
-  }
+  let diagnosisTitle = "", statusBg = "";
+  if (score >= 80) { diagnosisTitle = "BISNIS SEHAT (PRIME) 🟢"; statusBg = "bg-green-600"; }
+  else if (score >= 50) { diagnosisTitle = "WASPADA (WARNING) 🟡"; statusBg = "bg-yellow-500"; }
+  else { diagnosisTitle = "KRITIS (ICU) 🔴"; statusBg = "bg-red-700"; }
 
   // Generate Diagnosis Points
+  let diagnosisText = [];
   if (runwayNum < 1) diagnosisText.push("DARURAT KAS: Sisa napas bisnis kurang dari 1 bulan. Risiko gagal bayar tinggi.");
   if (!validHpp) diagnosisText.push("BLIND COSTING: HPP tidak valid (belum hitung Waste/Labor). Profit Anda kemungkinan semu.");
   if (stockMonthNum > 3) diagnosisText.push(`OBESITAS STOK: Uang macet di gudang selama ${stockMonth} bulan.`);
@@ -257,8 +272,6 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
   if (diagnosisText.length === 0) diagnosisText.push("Secara umum indikator vital bisnis Anda terlihat sehat. Pertahankan kedisiplinan pencatatan ini.");
 
   const YOUTUBE_VIDEO_ID = "XXXXXXXX"; 
-  
-  // Link WA Expert
   const WA_EXPERT_CONSULT = `https://wa.me/6282229335366?text=Halo%20Expert%20Metalurgi%2C%20saya%20sudah%20dapat%20Vitality%20Score%3A%20${score}.%20Saya%20ingin%20diskusi%20solusi%20untuk%20perbaikan%20bisnis%20saya.`;
 
   return (
@@ -284,7 +297,7 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
         
         {/* DETAILED METRICS CARDS */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Card 1: Runway */}
+          {/* Card Runway */}
           <div className="bg-white p-6 rounded-xl shadow-lg border-b-4 border-blue-500 hover:shadow-xl transition">
             <div className="flex justify-between items-start mb-2">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Runway</p>
@@ -292,13 +305,10 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
             </div>
             <p className={`text-3xl font-black text-slate-800`}>{runway} <span className="text-lg font-medium text-slate-500">Bulan</span></p>
             <div className="mt-4 pt-4 border-t border-slate-100 text-sm">
-                <p className="font-bold text-slate-700 mb-1">Artinya:</p>
-                <p className="text-slate-500 mb-2">Bisnis bertahan {runway} bulan tanpa omzet.</p>
                 <p className="font-bold text-blue-600 text-xs">💡 Saran: {runwayStatus.advice}</p>
             </div>
           </div>
-
-          {/* Card 2: Margin */}
+          {/* Card Margin */}
           <div className="bg-white p-6 rounded-xl shadow-lg border-b-4 border-purple-500 hover:shadow-xl transition">
             <div className="flex justify-between items-start mb-2">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Gross Margin</p>
@@ -306,13 +316,10 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
             </div>
             <p className={`text-3xl font-black text-slate-800`}>{marginNum}%</p>
             <div className="mt-4 pt-4 border-t border-slate-100 text-sm">
-                <p className="font-bold text-slate-700 mb-1">Artinya:</p>
-                <p className="text-slate-500 mb-2">Sisa uang dari penjualan setelah potong HPP.</p>
                 <p className="font-bold text-purple-600 text-xs">💡 Saran: {marginStatus.advice}</p>
             </div>
           </div>
-
-          {/* Card 3: Stock */}
+          {/* Card Stock */}
           <div className="bg-white p-6 rounded-xl shadow-lg border-b-4 border-orange-500 hover:shadow-xl transition">
             <div className="flex justify-between items-start mb-2">
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Umur Stok</p>
@@ -320,8 +327,6 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
             </div>
             <p className={`text-3xl font-black text-slate-800`}>{stockMonth} <span className="text-lg font-medium text-slate-500">Bulan</span></p>
             <div className="mt-4 pt-4 border-t border-slate-100 text-sm">
-                <p className="font-bold text-slate-700 mb-1">Artinya:</p>
-                <p className="text-slate-500 mb-2">Lama barang mengendap sebelum laku terjual.</p>
                 <p className="font-bold text-orange-600 text-xs">💡 Saran: {stockStatus.advice}</p>
             </div>
           </div>
@@ -341,65 +346,41 @@ function DashboardView({ searchParams }: { searchParams: URLSearchParams }) {
               </div>
             ))}
           </div>
-          <div className="mt-6 pt-6 border-t border-blue-200">
-             <p className="text-sm text-blue-800 italic">
-                "Skor ini adalah cerminan sistem operasional Anda saat ini. Angka tidak bisa berbohong."
-             </p>
-          </div>
         </div>
 
-        {/* CTA: DISKUSI DENGAN EXPERT (BEFORE VIDEO) */}
+        {/* CTA EXPERT & VIDEO */}
         <div className="bg-slate-900 text-white p-8 rounded-2xl shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
-            {/* Background Accent */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[80px] opacity-20 -mr-16 -mt-16"></div>
-            
             <div className="relative z-10">
                 <h3 className="text-xl font-bold mb-2">Bingung Membaca Hasil Ini?</h3>
-                <p className="text-slate-300 max-w-lg">
-                    Jangan ambil keputusan sendiri. Bedah hasil diagnosa ini bersama Financial Expert Metalurgi untuk menyusun strategi perbaikan.
-                </p>
+                <p className="text-slate-300 max-w-lg">Bedah hasil diagnosa ini bersama Financial Expert Metalurgi untuk menyusun strategi perbaikan.</p>
             </div>
-            <a 
-                href={WA_EXPERT_CONSULT}
-                target="_blank"
-                className="relative z-10 flex-shrink-0 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition flex items-center gap-2 shadow-lg"
-            >
-                <UserCheck className="w-5 h-5" />
-                Diskusikan Hasil Diagnosa (WA)
+            <a href={WA_EXPERT_CONSULT} target="_blank" className="relative z-10 bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition flex items-center gap-2 shadow-lg">
+                <UserCheck className="w-5 h-5" /> Diskusikan Hasil (WA)
             </a>
         </div>
 
-        {/* VIDEO SECTION */}
         <div className="bg-black rounded-2xl shadow-xl overflow-hidden aspect-video relative group">
            <iframe className="w-full h-full" src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?rel=0`} title="Intro" allowFullScreen></iframe>
         </div>
 
-        {/* BOTTOM CTA */}
         <div className="text-center pt-8">
             <p className="text-slate-500 mb-4 text-sm">Butuh solusi sistem untuk memperbaiki skor di atas?</p>
             <div className="flex justify-center gap-4">
-                <Link href="/" className="text-blue-600 font-bold hover:underline">
-                    Lihat Fitur Metalurgi App &rarr;
-                </Link>
+                <Link href="/" className="text-blue-600 font-bold hover:underline">Lihat Fitur Metalurgi App &rarr;</Link>
             </div>
         </div>
-
       </div>
     </div>
   );
 }
 
-
 // --- MAIN ROUTER ---
 function ScorecardRouter() {
   const searchParams = useSearchParams();
   const hasData = searchParams.has('kas') || searchParams.has('omzet');
-
-  if (hasData) {
-    return <DashboardView searchParams={searchParams} />;
-  } else {
-    return <OnboardingView />;
-  }
+  if (hasData) return <DashboardView searchParams={searchParams} />;
+  else return <OnboardingView />;
 }
 
 export default function Page() {
