@@ -1,3 +1,7 @@
+'use client';
+
+import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { 
   ArrowRight, 
   BarChart3, 
@@ -16,11 +20,47 @@ import {
   ArrowDown
 } from 'lucide-react';
 
-export default function Home() {
+// --- KOMPONEN KONTEN UTAMA (Dengan Logic Dynamic Headline) ---
+function MainContent() {
+  const searchParams = useSearchParams();
+  const ref = searchParams.get('ref');
+
   // --- KONFIGURASI LINK ---
-  const LINK_LEAD_MAGNET = "/result"; // Masuk ke Funnel Scorecard
-  const LINK_DEMO_APP = "https://metalurgi-erp.vercel.app"; // Link Demo App
+  const LINK_LEAD_MAGNET = "/result"; 
+  const LINK_DEMO_APP = "https://metalurgi-erp.vercel.app"; 
   const LINK_BOOKING_WA = "https://wa.me/6281234567890?text=Halo%20Tim%20Metalurgi,%20saya%20tertarik%20diskusi%20soal%20Lifetime%20License."; 
+
+  // --- LOGIC DYNAMIC HEADLINE ---
+  // Default Headline
+  let dynamicHeadline = (
+    <>
+      Fitur Sekelas Enterprise. <br/>
+      <span className="text-blue-700">Tanpa Biaya Langganan.</span>
+    </>
+  );
+  let dynamicSub = "Miliki Business Operating System (BOS) Anda sendiri selamanya. Hemat puluhan juta rupiah per tahun dengan menghapus biaya sewa software (SaaS).";
+
+  // Skenario A: Dari Sosmed (ref=sosmed)
+  if (ref === 'sosmed') {
+    dynamicHeadline = (
+      <>
+        Omzet Tembus Milyaran, <br/>
+        <span className="text-red-600">Tapi Saldo Bank Kosong?</span>
+      </>
+    );
+    dynamicSub = "Jangan-jangan bisnis Anda mengalami 'Pendarahan Internal'. Software akuntansi biasa tidak akan mendeteksi ini. Cek diagnosanya sekarang sebelum terlambat.";
+  }
+  
+  // Skenario B: Dari WA Teman (ref=wa)
+  else if (ref === 'wa') {
+    dynamicHeadline = (
+      <>
+        Cek Kesehatan Bisnis, <br/>
+        <span className="text-green-600">Gratis untuk Partner.</span>
+      </>
+    );
+    dynamicSub = "Tools diagnosa sederhana (Excel-based) untuk melihat sisa napas cashflow dan kebocoran profit Anda. Khusus rekanan, akses gratis hari ini.";
+  }
 
   return (
     <main className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 scroll-smooth">
@@ -53,7 +93,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* --- HERO SECTION --- */}
+      {/* --- HERO SECTION (DYNAMIC) --- */}
       <section className="pt-32 pb-20 px-6 bg-slate-50 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute top-0 left-0 w-full h-full opacity-5 bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]"></div>
@@ -64,13 +104,11 @@ export default function Home() {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-            Fitur Sekelas Enterprise. <br/>
-            <span className="text-blue-700">Tanpa Biaya Langganan.</span>
+            {dynamicHeadline}
           </h1>
           
           <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Miliki <strong>Business Operating System (BOS)</strong> Anda sendiri selamanya. 
-            Jangan tebak-tebakan soal profit. Mulai dengan diagnosa kesehatan bisnis Anda hari ini.
+            {dynamicSub}
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
@@ -93,7 +131,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- NEW SECTION: THE DIAGNOSTIC BRIDGE (PENTING!) --- */}
+      {/* --- SECTION: THE DIAGNOSTIC BRIDGE --- */}
       <section id="bridge" className="py-16 px-6 bg-white border-b border-slate-100 relative">
         <div className="max-w-6xl mx-auto">
            {/* Section Header */}
@@ -291,7 +329,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- STRATEGIC ADD-ONS (THE SOUL) --- */}
+      {/* --- STRATEGIC ADD-ONS --- */}
       <section id="addons" className="py-24 px-6 bg-slate-50 border-t border-slate-200">
         <div className="max-w-6xl mx-auto">
           <div className="mb-16">
@@ -436,5 +474,14 @@ export default function Home() {
         </div>
       </footer>
     </main>
+  );
+}
+
+// Wrapper supaya aman dari error Suspense (Wajib di Next.js App Router saat pakai useSearchParams)
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+      <MainContent />
+    </Suspense>
   );
 }
