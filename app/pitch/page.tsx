@@ -2,8 +2,11 @@
 
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-// PERBAIKAN: Menambahkan 'Activity' dan 'Layout' ke dalam import
-import { Database, AlertTriangle, TrendingDown, BarChart4, CheckCircle2, ArrowDown, Activity, Layout } from 'lucide-react';
+// PERBAIKAN: Menambahkan icon Server, Users, Youtube, Headphones, ShieldCheck
+import { 
+  Database, AlertTriangle, TrendingDown, BarChart4, CheckCircle2, ArrowDown, 
+  Activity, Layout, Server, Users, Youtube, Headphones, ShieldCheck 
+} from 'lucide-react';
 import Link from 'next/link';
 
 // --- KOMPONEN SLIDE ---
@@ -174,7 +177,111 @@ export default function PitchDeck() {
          </motion.div>
       </Slide>
 
-      {/* SLIDE 5: CTA (THE NEXT STEP) */}
+      {/* --- SLIDE 5: SKENARIO IMPLEMENTASI (BARU) --- */}
+      <Slide className="bg-slate-800">
+         <div className="max-w-6xl w-full">
+            <motion.div 
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.8 }}
+               className="text-center mb-16"
+            >
+                <h2 className="text-4xl font-bold mb-4">Bagaimana Cara Mulainya?</h2>
+                <p className="text-slate-400">Pilih skenario yang paling cocok dengan kondisi tim Anda.</p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Opsi 1: Punya IT */}
+                <motion.div 
+                    initial={{ x: -50, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2 }}
+                    className="bg-slate-700/30 p-8 rounded-2xl border border-slate-600 hover:border-blue-500 transition"
+                >
+                    <div className="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center mb-6">
+                        <Server className="w-8 h-8 text-blue-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">Punya Tim IT?</h3>
+                    <p className="text-sm font-bold text-blue-400 mb-4">SELF-HOSTED SCENARIO</p>
+                    <ul className="space-y-3 text-slate-300">
+                        <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-blue-500"/> Beli Source Code License.</li>
+                        <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-blue-500"/> Deploy mandiri ke VPS Anda.</li>
+                        <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-blue-500"/> Data 100% Private di server sendiri.</li>
+                    </ul>
+                </motion.div>
+
+                {/* Opsi 2: Tidak Punya IT */}
+                <motion.div 
+                    initial={{ x: 50, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.4 }}
+                    className="bg-green-900/10 p-8 rounded-2xl border border-green-500/30 hover:border-green-500 transition relative overflow-hidden"
+                >
+                     <div className="absolute top-0 right-0 bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
+                    <div className="w-14 h-14 bg-green-900/50 rounded-xl flex items-center justify-center mb-6">
+                        <Users className="w-8 h-8 text-green-400" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">Tidak Punya IT?</h3>
+                    <p className="text-sm font-bold text-green-400 mb-4">MANAGED SERVICE SCENARIO</p>
+                    <ul className="space-y-3 text-slate-300">
+                        <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-green-500"/> Ambil Add-on "Setup Service".</li>
+                        <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-green-500"/> Kami installkan server terima beres.</li>
+                        <li className="flex gap-2"><CheckCircle2 className="w-5 h-5 text-green-500"/> Anda tinggal Login & Pakai.</li>
+                    </ul>
+                </motion.div>
+            </div>
+         </div>
+      </Slide>
+
+      {/* --- SLIDE 6: JAMINAN SUPPORT (BARU) --- */}
+      <Slide className="bg-gradient-to-b from-slate-800 to-slate-900">
+         <div className="max-w-5xl w-full text-center">
+             <motion.h2 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               className="text-4xl font-bold mb-16"
+             >
+                Kami Tidak Meninggalkan Anda Sendiri.
+             </motion.h2>
+
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <motion.div 
+                   initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }}
+                   className="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:scale-105 transition"
+                >
+                    <div className="mx-auto w-12 h-12 bg-red-500/20 text-red-400 rounded-full flex items-center justify-center mb-4">
+                        <Youtube className="w-6 h-6"/>
+                    </div>
+                    <h4 className="font-bold text-lg mb-2">Video Academy</h4>
+                    <p className="text-sm text-slate-400">Akses seumur hidup ke perpustakaan video tutorial step-by-step.</p>
+                </motion.div>
+
+                <motion.div 
+                   initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.2 }}
+                   className="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:scale-105 transition"
+                >
+                    <div className="mx-auto w-12 h-12 bg-purple-500/20 text-purple-400 rounded-full flex items-center justify-center mb-4">
+                        <Users className="w-6 h-6"/>
+                    </div>
+                    <h4 className="font-bold text-lg mb-2">2x Live Training</h4>
+                    <p className="text-sm text-slate-400">Sesi Zoom Privat: 1x Setup Admin & 1x Review Dashboard Owner.</p>
+                </motion.div>
+
+                <motion.div 
+                   initial={{ y: 30, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}
+                   className="bg-slate-800 p-6 rounded-2xl border border-slate-700 hover:scale-105 transition"
+                >
+                    <div className="mx-auto w-12 h-12 bg-blue-500/20 text-blue-400 rounded-full flex items-center justify-center mb-4">
+                        <Headphones className="w-6 h-6"/>
+                    </div>
+                    <h4 className="font-bold text-lg mb-2">Group Support</h4>
+                    <p className="text-sm text-slate-400">Grup WhatsApp khusus untuk tanya jawab kendala harian tim Anda.</p>
+                </motion.div>
+             </div>
+         </div>
+      </Slide>
+
+      {/* SLIDE 7: CTA (THE NEXT STEP) */}
       <Slide className="bg-slate-950 text-center relative">
         <motion.div 
            initial={{ opacity: 0, y: 30 }}
